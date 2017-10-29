@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -94,13 +94,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="生活實驗室">
-<meta property="og:url" content="https://lovehoward.github.io/index.html">
+<meta name="description" content="其實 Debian 網站上的說明都有寫到如何從硬碟中安裝，但說明不夠詳細，我還是花了點時間摸索，整理過程如下。 下載需要的檔案要從硬碟啟動安裝程式共需要下載以下三個檔案，並把這三個檔案放在安裝時不會格式化的分割區，例如要保留的 home 分割區。  安裝光碟的 iso 檔，記得存成 iso 結尾。 vmlinuz：從 debian installer 的hd-media 資料夾中下載可用於硬碟安裝">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用 Grub2 從硬碟安裝 Debian">
+<meta property="og:url" content="https://lovehoward.github.io/2017/10/29/debian-installer-from-hd/index.html">
 <meta property="og:site_name" content="生活實驗室">
+<meta property="og:description" content="其實 Debian 網站上的說明都有寫到如何從硬碟中安裝，但說明不夠詳細，我還是花了點時間摸索，整理過程如下。 下載需要的檔案要從硬碟啟動安裝程式共需要下載以下三個檔案，並把這三個檔案放在安裝時不會格式化的分割區，例如要保留的 home 分割區。  安裝光碟的 iso 檔，記得存成 iso 結尾。 vmlinuz：從 debian installer 的hd-media 資料夾中下載可用於硬碟安裝">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2017-10-29T13:57:52.600Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="生活實驗室">
+<meta name="twitter:title" content="利用 Grub2 從硬碟安裝 Debian">
+<meta name="twitter:description" content="其實 Debian 網站上的說明都有寫到如何從硬碟中安裝，但說明不夠詳細，我還是花了點時間摸索，整理過程如下。 下載需要的檔案要從硬碟啟動安裝程式共需要下載以下三個檔案，並把這三個檔案放在安裝時不會格式化的分割區，例如要保留的 home 分割區。  安裝光碟的 iso 檔，記得存成 iso 結尾。 vmlinuz：從 debian installer 的hd-media 資料夾中下載可用於硬碟安裝">
 
 
 
@@ -129,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://lovehoward.github.io/"/>
+  <link rel="canonical" href="https://lovehoward.github.io/2017/10/29/debian-installer-from-hd/"/>
 
 
 
 
 
-  <title>生活實驗室</title>
+  <title>利用 Grub2 從硬碟安裝 Debian | 生活實驗室</title>
   
 
 
@@ -160,9 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -277,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/29/debian-installer-from-hd/" itemprop="url">利用 Grub2 從硬碟安裝 Debian</a></h1>
+          <h1 class="post-title" itemprop="name headline">利用 Grub2 從硬碟安裝 Debian</h1>
         
 
         <div class="post-meta">
@@ -329,9 +330,7 @@
       
 
       
-        
-          
-            <p>其實 Debian 網站上的說明都有寫到如何從硬碟中安裝，但說明不夠詳細，我還是花了點時間摸索，整理過程如下。</p>
+        <p>其實 Debian 網站上的說明都有寫到如何從硬碟中安裝，但說明不夠詳細，我還是花了點時間摸索，整理過程如下。</p>
 <h1 id="下載需要的檔案"><a href="#下載需要的檔案" class="headerlink" title="下載需要的檔案"></a>下載需要的檔案</h1><p>要從硬碟啟動安裝程式共需要下載以下三個檔案，並把這三個檔案放在安裝時不會格式化的分割區，例如要保留的 <code>home</code> 分割區。</p>
 <ol>
 <li>安裝光碟的 iso 檔，記得存成 iso 結尾。</li>
@@ -346,8 +345,6 @@
 <p>接著，安裝程式會從 iso 檔中載入更多必要的模組。因此，下載時要確定 kernel 版本兩邊一致，不然很多功能 (如 WiFi) 無法正常運行，安裝可能不順利。</p>
 <p>接著就如同從光碟中進行安裝，唯一的限制是放 iso 檔的分割區無法在安裝時掛載。因為我放在要保留的 <code>home</code> 分割區，因此，這個分割區必需要在安裝完成後，再修改 <code>/etc/fstab</code> 檔掛載上去。</p>
 
-          
-        
       
     </div>
     
@@ -362,269 +359,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lovehoward.github.io/2017/10/22/大霸尖山三日/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="生活實驗室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/22/大霸尖山三日/" itemprop="url">大霸尖山三日</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-10-22T22:38:37+08:00">
-                2017-10-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p><img border="0" data-original-height="1059" data-original-width="1600" height="422" src="https://2.bp.blogspot.com/-R2S7duTwfZI/WdrxaRqY8mI/AAAAAAAA5Fk/dGwVupSpLB4aUc4DBrPI_wpRiwsEppERgCKgBGAs/s640/IMAG3892.jpg" width="640"></p>
-<p><em>往大霸尖山路上。</em></p>
-<p>「大霸尖山 11X km」。大學時候，以摩托車初次拓寬自己的生活圈時，就曾在路上看到這個顏色有點黯淡的路標，那時候對大霸尖山四個字毫無概念，但既然破百公里路途就被標示出來，應該是個重要的地方吧？果然名字好聽是重要的，當時的我就決定有朝一日一定要到大霸尖山走一遭。</p>
-<p>真的成行，是在很久以後。這時的我已爬過幾座高山，耳聞一些大霸尖山的故事。現在登大霸尖山，要先走上 19 公里的大鹿林道，才能抵達大霸尖山登山口，路途之遠，正常腳程非得要三天才能完登。在過去，大鹿林道東線是可以讓汽車通行的，車子長驅直入登山口，再爬 4 公里的山路就能到達九九山莊，登大霸尖山只是條兩天一夜的路線。九九山莊竟有 400 個床位，大霸上還曾架梯讓人登頂，不難想像過去此地的登山勝況。看著過去留下來登大霸的老照片，有小時候參加救國團營隊﹑一種泛黃的熱鬧之感。</p>
-<p>長時間的封山加上林道不再開放通行，有緣來到大霸尖山的人變少了，但九九山莊的時間彷彿被凍結在過去的歲月中，成功堡裡，還貼著反共標語，似乎也有位熱情不減的莊主會為山友唱歌。</p>
-<p><img border="0" data-original-height="1600" data-original-width="1200" height="640" src="https://3.bp.blogspot.com/-D7gY4w05Bg8/Wdeg4cRuVwI/AAAAAAAA41o/30nGCf3QdNQva6iwZT9Et-FqtSeJcxPWwCKgBGAs/s640/IMAG3941.jpg" width="480">
-<em>現在的九九山莊門口，一顆顆「成功堡」裡，還貼著反共標語。</em></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/22/大霸尖山三日/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/22/大霸尖山三日/" rel="next" title="大霸尖山三日">
+                <i class="fa fa-chevron-left"></i> 大霸尖山三日
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lovehoward.github.io/2017/10/22/為何我最後選擇了-Garmin-R935/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="生活實驗室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/22/為何我最後選擇了-Garmin-R935/" itemprop="url">Garmin R935、Suunto Spartan Sport Wrist HR、Tomtom Adventurer 比較</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-10-22T21:28:51+08:00">
-                2017-10-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>去年我曾考慮購入有心率功能的 GPS 錶，還仔細比較了幾只中階手錶的規格，但最後覺得都不能完全滿意，因此最後沒能換掉手邊的 Bryton S430。人算不如天算，想不到不到一年之後，我開始考慮價格帶在 10,000-20,000 間的中高階 GPS 手錶，還真的買了一只。</p>
-<p>會考慮更高階的 GPS 心率錶，主要是跑步外，這一年還開始登山和越野跑，手上的 S430 在天空較不開闊的山裡顯得力有未逮， 功能也並非為了在野外使用。因此，我針對戶外運動的需求，比較了 Garmin Forerunner 935、Suunto Spartan Sport Wrist HR、Tomtom Adventurer 三支主打戶外運動的 GPS <em>心率錶</em>，最後購入了 Garmin 935，用得相當滿意。我將幾個考慮的項目記錄如下，供未來有興趣的人參考。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/22/為何我最後選擇了-Garmin-R935/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -634,10 +398,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -645,6 +410,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -665,8 +434,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -719,6 +497,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#下載需要的檔案"><span class="nav-number">1.</span> <span class="nav-text">下載需要的檔案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#設定-grub2"><span class="nav-number">2.</span> <span class="nav-text">設定 grub2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重開機，由-grub-選單的-New-Install-選項啟動安裝程式"><span class="nav-number">3.</span> <span class="nav-text">重開機，由 grub 選單的 New Install 選項啟動安裝程式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -832,10 +626,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
