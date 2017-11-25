@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux," />
+  <meta name="keywords" content="生活," />
 
 
 
@@ -94,18 +94,20 @@
 
 
 
-<meta name="description" content="其實 Debian 網站上的說明都有寫到如何從硬碟中安裝，但說明不夠詳細，我還是花了點時間摸索，整理過程如下。 下載需要的檔案要從硬碟啟動安裝程式共需要下載以下三個檔案，並把這三個檔案放在安裝時不會格式化的分割區，例如要保留的 home 分割區。  安裝光碟的 iso 檔，記得存成 iso 結尾。 vmlinuz：從 debian installer 的hd-media 資料夾中下載可用於硬碟安裝">
-<meta name="keywords" content="linux">
+<meta name="description" content="在新竹住了很久，但住在新竹市區是第一次。 無論是求學還是工作時期，常日活動的範圍都侷限在車站後方。大學時代，偶爾還會到市區，但多半為了聚餐、唱KTV；研究所以及工作以後，活動範圍更小，幾乎只在光復路、園區裡周旋而已。 搬到市區這棟還算高的樓房後，陽台可以看到海，天氣好時，還可以從樓中樓下來的窗，以巧妙角度看到遠方的大霸尖山。雖然每個早晨雖然總是厭世醒來，但還是提醒自己會記得看看今天的海，看看遠處的">
+<meta name="keywords" content="生活">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用 Grub2 從硬碟安裝 Debian">
-<meta property="og:url" content="https://lovehoward.github.io/2017/10/29/debian-installer-from-hd/index.html">
+<meta property="og:title" content="在新竹市區生活">
+<meta property="og:url" content="https://lovehoward.github.io/2017/11/05/sunday-blue/index.html">
 <meta property="og:site_name" content="生活實驗室">
-<meta property="og:description" content="其實 Debian 網站上的說明都有寫到如何從硬碟中安裝，但說明不夠詳細，我還是花了點時間摸索，整理過程如下。 下載需要的檔案要從硬碟啟動安裝程式共需要下載以下三個檔案，並把這三個檔案放在安裝時不會格式化的分割區，例如要保留的 home 分割區。  安裝光碟的 iso 檔，記得存成 iso 結尾。 vmlinuz：從 debian installer 的hd-media 資料夾中下載可用於硬碟安裝">
+<meta property="og:description" content="在新竹住了很久，但住在新竹市區是第一次。 無論是求學還是工作時期，常日活動的範圍都侷限在車站後方。大學時代，偶爾還會到市區，但多半為了聚餐、唱KTV；研究所以及工作以後，活動範圍更小，幾乎只在光復路、園區裡周旋而已。 搬到市區這棟還算高的樓房後，陽台可以看到海，天氣好時，還可以從樓中樓下來的窗，以巧妙角度看到遠方的大霸尖山。雖然每個早晨雖然總是厭世醒來，但還是提醒自己會記得看看今天的海，看看遠處的">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2017-10-29T13:57:52.600Z">
+<meta property="og:image" content="https://2.bp.blogspot.com/-f-iT8kE91ao/Wg_i0KYZpRI/AAAAAAAA5nI/99w-ZO8zPJY9SloexVoqPcx410C0SeKlwCLcBGAs/s640/2017-11-18%2B15-34-53%2B%25E7%259A%2584%25E8%259E%25A2%25E5%25B9%2595%25E6%2593%25B7%25E5%259C%2596.png">
+<meta property="og:updated_time" content="2017-11-18T07:38:30.982Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用 Grub2 從硬碟安裝 Debian">
-<meta name="twitter:description" content="其實 Debian 網站上的說明都有寫到如何從硬碟中安裝，但說明不夠詳細，我還是花了點時間摸索，整理過程如下。 下載需要的檔案要從硬碟啟動安裝程式共需要下載以下三個檔案，並把這三個檔案放在安裝時不會格式化的分割區，例如要保留的 home 分割區。  安裝光碟的 iso 檔，記得存成 iso 結尾。 vmlinuz：從 debian installer 的hd-media 資料夾中下載可用於硬碟安裝">
+<meta name="twitter:title" content="在新竹市區生活">
+<meta name="twitter:description" content="在新竹住了很久，但住在新竹市區是第一次。 無論是求學還是工作時期，常日活動的範圍都侷限在車站後方。大學時代，偶爾還會到市區，但多半為了聚餐、唱KTV；研究所以及工作以後，活動範圍更小，幾乎只在光復路、園區裡周旋而已。 搬到市區這棟還算高的樓房後，陽台可以看到海，天氣好時，還可以從樓中樓下來的窗，以巧妙角度看到遠方的大霸尖山。雖然每個早晨雖然總是厭世醒來，但還是提醒自己會記得看看今天的海，看看遠處的">
+<meta name="twitter:image" content="https://2.bp.blogspot.com/-f-iT8kE91ao/Wg_i0KYZpRI/AAAAAAAA5nI/99w-ZO8zPJY9SloexVoqPcx410C0SeKlwCLcBGAs/s640/2017-11-18%2B15-34-53%2B%25E7%259A%2584%25E8%259E%25A2%25E5%25B9%2595%25E6%2593%25B7%25E5%259C%2596.png">
 
 
 
@@ -134,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://lovehoward.github.io/2017/10/29/debian-installer-from-hd/"/>
+  <link rel="canonical" href="https://lovehoward.github.io/2017/11/05/sunday-blue/"/>
 
 
 
 
 
-  <title>利用 Grub2 從硬碟安裝 Debian | 生活實驗室</title>
+  <title>在新竹市區生活 | 生活實驗室</title>
   
 
 
@@ -263,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lovehoward.github.io/2017/10/29/debian-installer-from-hd/">
+    <link itemprop="mainEntityOfPage" href="https://lovehoward.github.io/2017/11/05/sunday-blue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howard">
@@ -280,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">利用 Grub2 從硬碟安裝 Debian</h1>
+          <h1 class="post-title" itemprop="name headline">在新竹市區生活</h1>
         
 
         <div class="post-meta">
@@ -292,8 +294,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-10-29T21:16:24+08:00">
-                2017-10-29
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-11-05T16:35:14+08:00">
+                2017-11-05
               </time>
             
 
@@ -330,20 +332,21 @@
       
 
       
-        <p>其實 Debian 網站上的說明都有寫到如何從硬碟中安裝，但說明不夠詳細，我還是花了點時間摸索，整理過程如下。</p>
-<h1 id="下載需要的檔案"><a href="#下載需要的檔案" class="headerlink" title="下載需要的檔案"></a>下載需要的檔案</h1><p>要從硬碟啟動安裝程式共需要下載以下三個檔案，並把這三個檔案放在安裝時不會格式化的分割區，例如要保留的 <code>home</code> 分割區。</p>
-<ol>
-<li>安裝光碟的 iso 檔，記得存成 iso 結尾。</li>
-<li><code>vmlinuz</code>：從 debian installer 的<a href="http://ftp.debian.org/debian/dists/stable/main/installer-i386/current/images/hd-media/" target="_blank" rel="external">hd-media 資料夾</a>中下載可用於硬碟安裝用的 kernel 檔。這檔案要和 iso 檔光碟的版本一致。在 debian 網站中沒有直接的連結，我是用 Google 大神找到我需要的版本。</li>
-<li><code>initrd.gz</code>：hd-media 資料夾中從硬碟安裝用的 initial ramdisk。</li>
-</ol>
-<p>2、3 是必要的！雖然 grub2 可以直接讀取 iso 檔中的 <code>vmlinuz</code> 和 <code>initrd.gz</code> 開機，有些 distro 的 iso 檔也的確可以這樣安裝，但<strong>從 Debian 光碟中的啟動的安裝程式是不能讀取硬碟中的 iso 檔來安裝的！</strong>一定要特別從 <a href="http://ftp.debian.org/debian/dists/stable/main/installer-i386/current/images/hd-media/" target="_blank" rel="external">hd-media</a> 資料夾下載這兩個檔案。</p>
-<h1 id="設定-grub2"><a href="#設定-grub2" class="headerlink" title="設定 grub2"></a>設定 grub2</h1><p>把以下幾行加到 <code>/etc/grub.d/40_custom</code>，改好後執行 <code>update-grub</code> 產生新的 grub2 設定檔。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">menuentry &apos;New Install&apos; &#123;</div><div class="line">set root=&apos;(hd0,6)&apos;</div><div class="line">linux /newinstall/vmlinuz</div><div class="line">initrd /newinstall/initrd.gz</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>其中，<code>set root=&#39;(hd0,6)&#39;</code> 的意思是，在第 1 個硬碟的第 6 個分割區 (即 <code>/dev/sda6</code>) ，裡頭的 <code>newinstall</code> 資料夾找上述兩個檔案。</p>
-<h1 id="重開機，由-grub-選單的-New-Install-選項啟動安裝程式"><a href="#重開機，由-grub-選單的-New-Install-選項啟動安裝程式" class="headerlink" title="重開機，由 grub 選單的 New Install 選項啟動安裝程式"></a>重開機，由 grub 選單的 New Install 選項啟動安裝程式</h1><p>安裝程式啟動後，會從系統的硬碟中尋找安裝光碟的 iso 檔。我不確定會找到多深的目錄，但我放在第一層目錄中有被找到。</p>
-<p>接著，安裝程式會從 iso 檔中載入更多必要的模組。因此，下載時要確定 kernel 版本兩邊一致，不然很多功能 (如 WiFi) 無法正常運行，安裝可能不順利。</p>
-<p>接著就如同從光碟中進行安裝，唯一的限制是放 iso 檔的分割區無法在安裝時掛載。因為我放在要保留的 <code>home</code> 分割區，因此，這個分割區必需要在安裝完成後，再修改 <code>/etc/fstab</code> 檔掛載上去。</p>
+        <p>在新竹住了很久，但住在新竹市區是第一次。</p>
+<p>無論是求學還是工作時期，常日活動的範圍都侷限在車站後方。大學時代，偶爾還會到市區，但多半為了聚餐、唱KTV；研究所以及工作以後，活動範圍更小，幾乎只在光復路、園區裡周旋而已。</p>
+<p>搬到市區這棟還算高的樓房後，陽台可以看到海，天氣好時，還可以從樓中樓下來的窗，以巧妙角度看到遠方的大霸尖山。雖然每個早晨雖然總是厭世醒來，但還是提醒自己會記得看看今天的海，看看遠處的山嵐。身處紅塵，更得提醒自己自然並不遠，日復一日並非生活的全貌。</p>
+<h1 id="飲食"><a href="#飲食" class="headerlink" title="飲食"></a>飲食</h1><p>與科學園區一帶，應著新移入人口而生的全新大樓相比，新竹市區的樓房顯得舊了許多，但穿梭在這些舊房子中，常常能找到好味道。</p>
+<p>一類的好味道，是地道的老店，這些老店未必有名氣，但多半價格實惠，做為三餐可以負擔。舉例來說，光是在新竹巷弄間尋找鴨肉麵，就給了我很多驚喜。</p>
+<p>另一類的好味道，則是那些隱藏在舊房子中，或許是因為較低的房租吧？由年輕面孔帶來的新鮮味道。這類型的店面在科學園區一帶是不多見的，但只要在新竹市區繞繞，就會因「這裡竟然有這樣的甜點店、咖啡店、居酒屋等等」感到驚奇。在心中記得街角的某間賣店，期待有機會時造訪，成為在城裡生活的小確幸。</p>
+<h1 id="運動"><a href="#運動" class="headerlink" title="運動"></a>運動</h1><p>身為一位跑者(？)，每次易地而居，必定會做的一件事，就是打開地圖，找尋一條適合路跑路線。</p>
+<p>過去住在清交大附近時，清交環校就是一條有起伏、有距離的優質練跑路線；住在公道五路附近時，每晚公道五上的自行車道也是跑者聚集地，可向東跑至竹東邊界，或過興隆橋抵達竹北，10公里左右就達成跑過三個行政區的成就。</p>
+<p>然而，新竹市區的街道大多狹小車多，不適合跑步，更不適合夜跑。第一次夜跑就跑到縱貫線上，想不到晚上仍然車多，達成跑給車追的成就。所幸，實地探索幾次後，還是找到一條穿過小巷弄、抵達客雅溪旁自行車道的慢跑路線。雖然中間仍得穿過馬路，但已算是相當可跑的夜跑路線了。</p>
+<p><img border="0" data-original-height="323" data-original-width="631" height="326" src="https://2.bp.blogspot.com/-f-iT8kE91ao/Wg_i0KYZpRI/AAAAAAAA5nI/99w-ZO8zPJY9SloexVoqPcx410C0SeKlwCLcBGAs/s640/2017-11-18%2B15-34-53%2B%25E7%259A%2584%25E8%259E%25A2%25E5%25B9%2595%25E6%2593%25B7%25E5%259C%2596.png">
+<em>新竹市區難得的慢跑路線。</em></p>
+<p>假日若想跑的較遠，從自行車道續跑至竹香南北路，也是不錯的長距離路線。若願意騎車，至青草湖、十八尖山慢跑也是選項之一。</p>
+<h1 id="休閒"><a href="#休閒" class="headerlink" title="休閒"></a>休閒</h1><p>搬到走路就會到百貨公司的地方，剛好在周年慶就去走走，終於了解為什麼孟母三遷。</p>
+<p>新竹市區的「娛樂」機能還是比其他地方好很多的，新竹僅有幾家的電影院都在市區，看午夜場的電影成為可能的選項。號稱新竹最好玩的地方巨城百貨，假日的晴天塞車，雨天更塞。</p>
+<p>市區離海邊也近，周末下午至海邊走走，順道帶上新鮮海產回家簡單料理頗為愜意。只是，若想向山裡走，從市區出發比起從前遠上許多。</p>
 
       
     </div>
@@ -361,7 +364,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/生活/" rel="tag"># 生活</a>
           
         </div>
       
@@ -374,8 +377,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/22/大霸尖山三日/" rel="next" title="大霸尖山三日">
-                <i class="fa fa-chevron-left"></i> 大霸尖山三日
+              <a href="/2017/10/29/debian-installer-from-hd/" rel="next" title="利用 Grub2 從硬碟安裝 Debian">
+                <i class="fa fa-chevron-left"></i> 利用 Grub2 從硬碟安裝 Debian
               </a>
             
           </div>
@@ -384,8 +387,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/05/sunday-blue/" rel="prev" title="在新竹市區生活">
-                在新竹市區生活 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/13/running/" rel="prev" title="running">
+                running <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -511,7 +514,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#下載需要的檔案"><span class="nav-number">1.</span> <span class="nav-text">下載需要的檔案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#設定-grub2"><span class="nav-number">2.</span> <span class="nav-text">設定 grub2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重開機，由-grub-選單的-New-Install-選項啟動安裝程式"><span class="nav-number">3.</span> <span class="nav-text">重開機，由 grub 選單的 New Install 選項啟動安裝程式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#飲食"><span class="nav-number">1.</span> <span class="nav-text">飲食</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#運動"><span class="nav-number">2.</span> <span class="nav-text">運動</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#休閒"><span class="nav-number">3.</span> <span class="nav-text">休閒</span></a></li></ol></div>
             
 
           </div>
